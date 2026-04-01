@@ -9,6 +9,7 @@ class Program
     static void Main()
     {
         CrearUsuario();
+        MostrarUsuarios(); 
     }
 
     static void CrearUsuario()
@@ -25,5 +26,15 @@ class Program
         usuarios.Add(u);
 
         Console.WriteLine("Usuario creado correctamente.");
+    }
+
+    static void MostrarUsuarios()
+    {
+        Console.WriteLine("\nLista de usuarios:");
+
+        foreach (var u in usuarios)
+        {
+            Console.WriteLine($"{u.Id} - {u.Nombre} - {u.Email}");
+        }
     }
 }
