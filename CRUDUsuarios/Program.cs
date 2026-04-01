@@ -9,7 +9,8 @@ class Program
     static void Main()
     {
         CrearUsuario();
-        MostrarUsuarios(); 
+        MostrarUsuarios();
+        ActualizarUsuario(); 
     }
 
     static void CrearUsuario()
@@ -35,6 +36,29 @@ class Program
         foreach (var u in usuarios)
         {
             Console.WriteLine($"{u.Id} - {u.Nombre} - {u.Email}");
+        }
+    }
+
+    static void ActualizarUsuario()
+    {
+        Console.Write("\nIngrese ID del usuario a actualizar: ");
+        int id = int.Parse(Console.ReadLine());
+
+        var usuario = usuarios.Find(u => u.Id == id);
+
+        if (usuario != null)
+        {
+            Console.Write("Nuevo nombre: ");
+            usuario.Nombre = Console.ReadLine();
+
+            Console.Write("Nuevo email: ");
+            usuario.Email = Console.ReadLine();
+
+            Console.WriteLine("Usuario actualizado correctamente.");
+        }
+        else
+        {
+            Console.WriteLine("Usuario no encontrado.");
         }
     }
 }
