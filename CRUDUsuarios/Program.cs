@@ -10,7 +10,8 @@ class Program
     {
         CrearUsuario();
         MostrarUsuarios();
-        ActualizarUsuario(); 
+        ActualizarUsuario();
+        EliminarUsuario(); 
     }
 
     static void CrearUsuario()
@@ -61,4 +62,22 @@ class Program
             Console.WriteLine("Usuario no encontrado.");
         }
     }
-}
+
+    static void EliminarUsuario()
+    {
+        Console.Write("\nIngrese ID del usuario a eliminar: ");
+        int id = int.Parse(Console.ReadLine());
+
+        var usuario = usuarios.Find(u => u.Id == id);
+
+        if (usuario != null)
+        {
+            usuarios.Remove(usuario);
+            Console.WriteLine("Usuario eliminado correctamente.");
+        }
+        else
+        {
+            Console.WriteLine("Usuario no encontrado.");
+        }
+    }
+}}
